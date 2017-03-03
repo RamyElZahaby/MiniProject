@@ -4,11 +4,10 @@ var projectSchema = mongoose.Schema(
 {
     title:{
         type:String,
-        required:true,
-        unique:true
+        required:true
     },
     URL:{type:String, default:"N/A"},
-    username: {type: String},
+    username: String,
     img:{type:String, default:"n/a"}
 });
 

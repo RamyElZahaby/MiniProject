@@ -111,7 +111,8 @@
             <div class="row">
                 <% for(var i=0; i<projects.length; i++){%>
                     <div class="card col-xs-4">
-                        <h4 class="card-title"> <%= projects[i].title %></h4>
+                        <h4 class="card-title"> <%= projects[i].title %> by <%= projects[i].username%></h4>
+
                         <a href="<%= projects[i].URL %>" class="btn btn-primary card-link">Visit Website</a>
                     </div>
                 <% } %>

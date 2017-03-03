@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var projectController = require('../controllers/projectController');
 
 var User = require('../models/users');
 var Project = require('../models/project');
@@ -93,10 +94,11 @@ passport.deserializeUser(function(id, done)
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/users/profile', failureRedirect:'/users/login',failureFlash: true}),
+  passport.authenticate('local', {successRedirecxt:'/users/profile', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) 
   {
-    res.redirect('/profile');
+    req.session.loggedin = req.body.username;
+    res.redirect('/users/profile');
   });
 
 router.get('/logout', function(req, res){
@@ -107,30 +109,8 @@ router.get('/logout', function(req, res){
 	res.redirect('/users/login');
 });
 
-router.get('/profile', function(req,res)
-{
-    res.render('profile');
-});
+router.get('/profile', projectController.getUserWorks);
 
-router.post('/profile', function(req, res)
-    {
-        let project = new Project(req.body);
-
-        project.save(function(err, project)
-        {
-            if(err)
-            {
-                res.send(err.message)
-                console.log(err);
-                req.flash('error_msg', err.message);
-            }
-            else
-            {
-                console.log(project);
-                res.redirect('/users/profile');
-                req.flash('success_msg', 'Project has been successfully created.');
-            }
-        })
-    })
+router.post('/profile', projectController.createProject);
 
 module.exports = router;
