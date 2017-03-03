@@ -3,9 +3,26 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var projectController = require('../controllers/projectController');
+var multer = require('multer');
 
 var User = require('../models/users');
 var Project = require('../models/project');
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '../uploads/');
+    },
+    filename: function (req, file, cb) {
+        const buf = crypto.randomBytes(48);
+        cb(null, Date.now() + buf.toString('hex') + path.extname(file.originalname));
+    }
+});
+
+const upload = multer({
+    storage: storage
+});
+
+
 
 //Get register page
 router.get('/register', function(req, res)

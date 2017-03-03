@@ -8,7 +8,7 @@ var projectSchema = mongoose.Schema(
     },
     URL:{type:String, default:"N/A"},
     username: String,
-    img:{type:String, default:"n/a"}
+    screenshot  :{type:String, default:"n/a"}
 });
 
 var Project = mongoose.model("project", projectSchema);

@@ -21,6 +21,7 @@
            <% for(var i=0; i<projects.length; i++){%>
                             <div class="card col-xs-4">
                             <h4 class="card-title"> <%= projects[i].title %></h4>
+                            <img class="img" alt="No Image" src="uploads/<%=projects[i].screenshot %>">
                             <a href="<%= projects[i].URL %>" class="btn btn-primary card-link">Visit Website</a>
                              </div>
                         <% } %>
@@ -37,6 +38,10 @@
                     <div class="form-group">
                         <label for="InputLink">Link</label>
                         <input name = "URL" type="url" class="form-control" id="InputLink" placeholder="Link">
+                    </div>
+                    <div class="form-group">
+                        <label for="Inputimg">Screenshot</label>
+                        <input name = "screenshot" type="file" class="form-control" id="Inputimg" placeholder="Link" size="50">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
