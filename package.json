@@ -12,17 +12,17 @@
     "bcryptjs": "*",
     "body-parser": "*",
     "connect-flash": "*",
-    "cookie-parser": "^1.4.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "*",
     "express": "*",
-    "express-session": "*",
+    "express-session": "^1.15.1",
     "express-validator": "*",
     "mongodb": "*",
     "mongoose": "*",
+    "multer": "^1.3.0",
     "passport": "*",
     "passport-http": "*",
-    "passport-local": "*",
-    "ejs": "*",
-    "multer": "^1.3.0"
+    "passport-local": "*"
   },
   "devDependencies": {},
   "repository": {

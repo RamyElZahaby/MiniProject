@@ -10,6 +10,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var multer = require('multer');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var upload = multer({dest: 'uploads/'});
 
 mongoose.connect('mongodb://localhost/users');
