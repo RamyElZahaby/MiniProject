@@ -106,7 +106,7 @@ router.get('/logout', function(req, res){
 
 	req.flash('success_msg', 'You have been logged out successfully.');
 
-	res.redirect('/users/login');
+	res.redirect('/');
 });
 
 router.get('/profile', projectController.getUserWorks);
